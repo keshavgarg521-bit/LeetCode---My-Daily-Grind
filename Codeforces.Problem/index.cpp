@@ -863,3 +863,140 @@
 //         cout<<ans<<endl;
 //     }
 // }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int x,y;
+//         cin>>x>>y;
+//         bool ans = false;
+//         if(x>=y){
+//             if(x%y == 0){
+//                 ans = true;
+//             }
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int b[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>b[i];
+//         }
+//         bool ans = true;
+//         int i = 0;
+//         int j = 0;
+//         while(i<n){
+//          if(a[i] == b[i]){
+//             i++;
+//          }
+//          else{
+//             break;
+//          }
+//         }
+//         j = i;
+//         while(j<n && i<n){
+//             if(a[j] != b[j]){
+//                 int d1 = b[j]-a[j];
+//                 int d2 = b[i]-a[i];
+//                 d1 = d1 * (-1);
+//                 if(d1 != d2 && d1>0 && d2<0 ){
+//                     ans = false;
+//                     break;
+//                 }
+//                 i = j;
+//                 j++;
+//             }
+//             else{
+//                 j++;
+//             }
+//         }
+//         if(n == 1){
+//             if(b[0] - a[0] < 0){
+//                 ans = false;
+//             }
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int cnt1 = 0;
+        int cnt0 = 0;
+        for(int i = 0 ; i<n ; i++){
+            if(s[i] == '0'){
+                cnt0++;
+            }
+            else{
+                cnt1++;
+            }
+        }
+        int ans = 1;
+        int j = n-1;
+        if(cnt0 == 0 || cnt1 == 0){
+            ans = 1;
+        }
+        else{
+        if(s[n-1] == '0'){
+            while(j>=0){
+                if(s[j] == '1'){
+                    break;
+                }
+                cnt0--;
+                j--;
+            }
+            if(cnt0 == 0){
+                ans = 2;
+            }
+        }
+        else{
+         while(j>=0){
+                if(s[j] == '0'){
+                    break;
+                }
+                cnt1--;
+                j--;
+            }
+            if(cnt1 == 0){
+                ans = 2;
+            }
+        }
+        }
+        cout<<ans<<endl;
+    }
+}
