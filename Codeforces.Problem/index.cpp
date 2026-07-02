@@ -945,58 +945,87 @@
 //     }
 // }
 
-#include<iostream>
-#include<string>
+// #include<iostream>
+// #include<string>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string s;
+//         cin>>s;
+//         int cnt1 = 0;
+//         int cnt0 = 0;
+//         for(int i = 0 ; i<n ; i++){
+//             if(s[i] == '0'){
+//                 cnt0++;
+//             }
+//             else{
+//                 cnt1++;
+//             }
+//         }
+//         int ans = 1;
+//         int j = n-1;
+//         if(cnt0 == 0 || cnt1 == 0){
+//             ans = 1;
+//         }
+//         else{
+//         if(s[n-1] == '0'){
+//             while(j>=0){
+//                 if(s[j] == '1'){
+//                     break;
+//                 }
+//                 cnt0--;
+//                 j--;
+//             }
+//             if(cnt0 == 0){
+//                 ans = 2;
+//             }
+//         }
+//         else{
+//          while(j>=0){
+//                 if(s[j] == '0'){
+//                     break;
+//                 }
+//                 cnt1--;
+//                 j--;
+//             }
+//             if(cnt1 == 0){
+//                 ans = 2;
+//             }
+//         }
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+#include<bits/stdc++.h>
 using namespace std;
 int main(){
     int t;
     cin>>t;
     while(t--){
-        int n;
-        cin>>n;
-        string s;
-        cin>>s;
-        int cnt1 = 0;
-        int cnt0 = 0;
-        for(int i = 0 ; i<n ; i++){
-            if(s[i] == '0'){
-                cnt0++;
+      string s;
+      int cntab = 0;
+      int cntba = 0;
+      for(int i = 0 ; i<s.size()-1 && s.size() > 1 ; i++){
+        if(s[i] == 'a' && s[i+1] == 'b'){
+            cntab++;
+        }
+        else if(s[i] == 'b' && s[i+1] == 'a'){
+            cntba++;
+        }
+      }
+      if(cntab != cntba && s.size()>1){
+            if(s[s.size()-1] == 'a'){
+                s[s.size()-1] = 'b';
             }
             else{
-                cnt1++;
+                s[s.size()-1] == 'a';
             }
         }
-        int ans = 1;
-        int j = n-1;
-        if(cnt0 == 0 || cnt1 == 0){
-            ans = 1;
-        }
-        else{
-        if(s[n-1] == '0'){
-            while(j>=0){
-                if(s[j] == '1'){
-                    break;
-                }
-                cnt0--;
-                j--;
-            }
-            if(cnt0 == 0){
-                ans = 2;
-            }
-        }
-        else{
-         while(j>=0){
-                if(s[j] == '0'){
-                    break;
-                }
-                cnt1--;
-                j--;
-            }
-            if(cnt1 == 0){
-                ans = 2;
-            }
-        }
-        }
-        cout<<ans<<endl;
+        cout<<s<<endl;
     }
 }
