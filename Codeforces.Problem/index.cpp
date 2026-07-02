@@ -1001,31 +1001,295 @@
 //     }
 // }
 
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-      string s;
-      int cntab = 0;
-      int cntba = 0;
-      for(int i = 0 ; i<s.size()-1 && s.size() > 1 ; i++){
-        if(s[i] == 'a' && s[i+1] == 'b'){
-            cntab++;
-        }
-        else if(s[i] == 'b' && s[i+1] == 'a'){
-            cntba++;
-        }
-      }
-      if(cntab != cntba && s.size()>1){
-            if(s[s.size()-1] == 'a'){
-                s[s.size()-1] = 'b';
-            }
-            else{
-                s[s.size()-1] == 'a';
-            }
-        }
-        cout<<s<<endl;
-    }
-}
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//       string s;
+//       cin>>s;
+//       int cntab = 0;
+//       int cntba = 0;
+//       for(int i = 0 ; i<s.size()-1 && s.size() > 1 ; i++){
+//         if(s[i] == 'a' && s[i+1] == 'b'){
+//             cntab++;
+//         }
+//         else if(s[i] == 'b' && s[i+1] == 'a'){
+//             cntba++;
+//         }
+//       }
+//       if(cntab != cntba && s.size()>1){
+//             if(s[s.size()-1] == 'a'){
+//                 s[s.size()-1] = 'b';
+//             }
+//             else{
+//                 s[s.size()-1] = 'a';
+//             }
+//         }
+//         cout<<s<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//        long long n;
+//        cin>>n;
+//        int ans = INT_MAX;
+//        //5 wale ke liye check karte ha 
+//        long long num = n;
+//        int cnt = 0;
+//        while(num != 0){
+//           if(num%10 == 5){
+//             break;
+//           }
+//           else{
+//             cnt++;
+//             num = num/10;
+//           }
+//        }
+//        num = num/10;
+//        while(num != 0){
+//         if(num%10 == 2 || num%10 == 7){
+//             break;
+//         }
+//         else{
+//             num = num/10;
+//             cnt++;
+//         }
+//        }
+//        ans = min(ans,cnt);
+//        cnt = 0;
+
+//        //0 ke liye check karte ha
+
+//        while(n != 0){
+//           if(n%10 == 0){
+//             break;
+//           }
+//           else{
+//             cnt++;
+//             n = n/10;
+//           }
+//        }
+//        n = n/10;
+//        while(n != 0){
+//         if(n%10 == 0 || n%10 == 5){
+//             break;
+//         }
+//         else{
+//             n = n/10;
+//             cnt++;
+//         }
+//        }
+//        ans = min(ans,cnt);
+//        cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         int a[n];
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         long long cnt1 = 0;
+//         long long cnt0 = 0;
+//         for(long long i = 0 ; i<n ; i++){
+//             if(a[i] == 0){
+//                 cnt0++;
+//             }
+//             else if(a[i] == 1){
+//                 cnt1++;
+//             }
+//         }
+//         long long ans = 0;
+//         if(cnt1 != 0){
+//             if(cnt0 == 0){
+//                 ans = 1;
+//             }
+//             else{
+//                 ans = (pow(2,cnt0));
+//             }
+//             ans = ans*cnt1;
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         long long a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         if(n%2 == 0){
+//             cout<<2<<endl;
+//             cout<<1<<" "<<n<<endl;
+//             cout<<1<<" "<<n<<endl;
+//         }
+//         else{
+//             cout<<4<<endl;
+//             cout<<1<<" "<<n-1<<endl;
+//             cout<<1<<" "<<n-1<<endl;
+//             cout<<n-1<<" "<<n<<endl;
+//             cout<<n-1<<" "<<n<<endl;
+//         }
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         long long i = 1;
+//         while(1){
+//             if(n%i == 0){
+//                 i++;
+//             }
+//             else{
+//                 break;
+//             }
+//         }
+//         i--;
+//         cout<<i<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,k;
+//         cin>>n>>k;
+//         vector<int> a(n);
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         sort(a.begin(),a.end());
+//         int fans = INT_MAX;
+//         int ans = 0;
+//         int s = 0;
+//         int e = 0;
+//         int j = n-1;
+//         while(j>0){
+//             if(a[j]-a[j-1] <= k){
+//                 e = j;
+//                 s = j-1;
+//                 break;
+//             }
+//             else{
+//                 ans++;
+//                 j--;
+//             }
+//         }
+//         while(s>=0){
+//             if(a[e]-a[s] <= k){
+//                 e = s;
+//                 s--;
+//             }
+//             else{
+//                 break;
+//             }
+//         }
+//         ans = ans + 1 + s;
+//         fans = min(fans,ans);
+//         ans = 0;
+//         if(s >= 1){
+//             e = s;
+//             s--;
+//             while(s>=0){
+//              if(a[e]-a[s] <= k){
+//                 ans++;
+//                 e = s;
+//                 s--;
+//              }
+//              else{
+//                 fans = min(fans,(n-(ans+1)));
+//                 ans = 0;
+//                 e = s;
+//                 if(s >= 1){
+//                   s--;
+//                 }
+//                 else{
+//                     break;
+//                 }
+//              }
+//             }
+//             fans = min(fans,(n-(ans+1)));
+//         }
+//         cout<<fans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//     int n;
+//     cin>>n;
+//     string s;
+//     cin>>s;
+//     int i = 0 ; 
+//     int j = 1;
+//     int cnt = 1;
+//     while(j<n){
+//         if(s[j] == s[i]){
+//            j++;
+//         }
+//         else{
+//             cnt = max(cnt,j-i);
+//             i = j;
+//             j++;
+//         }
+//     }
+//     cnt = max(cnt,j-i);
+//     cout<<cnt+1<<endl;
+//   }
+// }
+
+// https://codeforces.com/problemset/problem/1559/A
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         long long a[n];
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         long long ans = a[0];
+//         for(int i = 1 ; i<n ; i++){
+//             ans = ans&a[i];
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
