@@ -1293,3 +1293,236 @@
 //         cout<<ans<<endl;
 //     }
 // }
+
+// https://codeforces.com/problemset/problem/1543/A
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long a,b;
+//         cin>>a>>b;
+//         if(b<a){
+//             swap(a,b);
+//         }
+//         long long dif = b-a;
+//         if(dif == 0){
+//             cout<<0<<" "<<0<<endl;
+//         }
+//         else{
+//             if(b%dif == 0){
+//                 cout<<dif<<" "<<0<<endl;
+//             }
+//             else{
+//                 long long data = b%dif;
+//                 long long temp = dif-data;
+//                 cout<<dif<<" "<<min(data,temp)<<endl;
+//             }
+//         }
+//     }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// long long dist(long long x1,long long y1,long long x2,long long y2){
+//     return abs(x1-x2)+abs(y1-y2);
+// }
+
+// int main(){
+//     int t;
+//     cin>>t;
+
+//     while(t--){
+//         long long n,m,i,j;
+//         cin>>n>>m>>i>>j;
+
+//         long long d1 = dist(i,j,1,1)
+//                      + dist(1,1,n,m)
+//                      + dist(n,m,i,j);
+
+//         long long d2 = dist(i,j,1,m)
+//                      + dist(1,m,n,1)
+//                      + dist(n,1,i,j);
+
+//         if(d1 >= d2)
+//             cout<<1<<" "<<1<<" "<<n<<" "<<m<<"\n";
+//         else
+//             cout<<1<<" "<<m<<" "<<n<<" "<<1<<"\n";
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         bool ans = false;
+//         if(n%2 != 0){
+//             ans = true;
+//         }
+//         else{
+//             n = n/2;
+//             while(n > 1){
+//                 if(n%2 != 0){
+//                     ans = true;
+//                     break;
+//                 }
+//                 n = n/2;
+//             }
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         vector<int> p(n);
+
+//         for (int i = 0; i < n; i++)
+//             cin >> p[i];
+
+//         bool ok = false;
+
+//         for (int j = 1; j < n - 1 && !ok; j++) {
+
+//             int left = -1, right = -1;
+
+//             // Find smaller element on left
+//             for (int i = 0; i < j; i++) {
+//                 if (p[i] < p[j]) {
+//                     left = i;
+//                     break;
+//                 }
+//             }
+
+//             // Find smaller element on right
+//             for (int k = j + 1; k < n; k++) {
+//                 if (p[k] < p[j]) {
+//                     right = k;
+//                     break;
+//                 }
+//             }
+
+//             if (left != -1 && right != -1) {
+//                 cout << "YES\n";
+//                 cout << left + 1 << " " << j + 1 << " " << right + 1 << "\n";
+//                 ok = true;
+//             }
+//         }
+
+//         if (!ok)
+//             cout << "NO\n";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//       string s;
+//       cin>>s;
+//       long long n = 0;
+//       long long cnt1 = 0;
+//       long long cnt0 = 0;
+//       long long i = 0;
+//       while( i < s.size()){
+//         if(s[i] == '1'){
+//             cnt1++;
+//         }
+//         else{
+//             cnt0++;
+//         }
+//         i++;
+//       }
+//       n = min(cnt1,cnt0);
+//       if(n%2 == 0){
+//         cout<<"NET"<<endl;
+//       }
+//       else{
+//         cout<<"DA"<<endl;
+//       }
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+// int t;
+// cin>>t;
+// while(t--){
+//     long long n;
+//     cin>>n;
+//     long long cnt = 0;
+//     while(n != 1){
+//        if(n%6 == 0){
+//         n = n/6;
+//        }
+//        else{
+//         if( (n*2)%6 == 0){
+//             n = n * 2;
+//         }
+//         else{
+//             break;
+//         }
+//        }
+//        cnt++;
+//     }
+//     if(n == 1){
+//         cout<<cnt<<endl;
+//     }
+//     else{
+//         cout<<-1<<endl;
+//     }
+// }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         long long n, x;
+//         cin >> n >> x;
+
+//         long long sum = 0;
+//         long long mx = 0;
+
+//         for (int i = 0; i < n; i++) {
+//             long long a;
+//             cin >> a;
+//             sum += a;
+//             mx += (a + x - 1) / x;
+//         }
+
+//         long long mn = (sum + x - 1) / x;
+
+//         cout << mn << " " << mx << "\n";
+//     }
+
+//     return 0;
+// }
