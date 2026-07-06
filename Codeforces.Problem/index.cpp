@@ -1526,3 +1526,286 @@
 
 //     return 0;
 // }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     ios::sync_with_stdio(false);
+//     cin.tie(nullptr);
+
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         vector<int> b(n);
+//         for (int i = 0; i < n; i++)
+//             cin >> b[i];
+
+//         vector<int> ans;
+//         ans.push_back(b[0]);
+
+//         for (int i = 1; i < n; i++) {
+//             if (b[i] >= b[i - 1]) {
+//                 ans.push_back(b[i]);
+//             } else {
+//                 ans.push_back(1);
+//                 ans.push_back(b[i]);
+//             }
+//         }
+
+//         cout << ans.size() << "\n";
+//         for (int x : ans)
+//             cout << x << " ";
+//         cout << "\n";
+//     }
+
+//     return 0;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int k;
+//         cin>>k;
+//         int c[k];
+//         for(int i = 0 ; i<k ; i++){
+//             cin>>c[i];
+//         }
+//         int cnt3 = 0;
+//         int cnt2 = 0;
+//         for(int i = 0 ; i<k ; i++){
+//             if(c[i] > 2 ){
+//                 cnt3++;
+//             }
+//             else if(c[i] == 2){
+//                 cnt2++;
+//             }
+//         }
+//         bool ans = false;
+//         if(cnt3 > 0 || cnt2 > 1){
+//             ans = true;
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         bool ans = false;
+//         vector<vector<int>> v(n, vector<int>(3, 0));
+//         int cnt1 = 0;
+//         int cnt2 = 0;
+//         int cnt3 = 0;
+//         for(int i = 0 ; i<n ; i++){
+//             if(a[i] == 1){
+//                 cnt1++;
+                
+//             }
+//             else if(a[i] == 2){
+//                 cnt2++;
+//             }
+//             else if(a[i] == 3){
+//                 cnt3++;
+//             }
+//             v[i][0] = cnt1;
+//             v[i][1] = cnt2;
+//             v[i][2] = cnt3;
+//         }
+//         int i = 0;
+//         while(i<(n-2)){
+//             if( (v[i][1] + v[i][2]) <= ((i+1)/2) ){
+//                 break;
+//             }
+//             i++;
+//         }
+//         if(i == n-2){
+//             cout<<"NO"<<endl;
+//         }
+//         else{
+//             int j = i;
+//             int k = n-2;
+//             while(j<(n-2) && k>=(i+1)){
+//                 int num1 = v[k][0] - v[j][0];
+//                 int num2 = v[k][1] - v[j][1];
+//                 int num3 = v[k][2] - v[j][2];
+//                 if(num3 <= ((k-j)/2) ){
+//                     ans = true;
+//                     break;
+//                 }
+//                 else{
+//                     if(v[j+1][1] + v[j+1][2] <= ((j+2)/2) ){
+//                         j++;
+//                     }
+//                     else{
+//                         int data = 0;
+//                         if(a[k] == 3){
+//                             data = 1;
+//                         }
+//                         if( (num3-data) <= ((k-1-j)/2) ){
+//                             k--;
+//                         }
+//                         else{
+//                             ans = false;
+//                             break;
+//                         }
+//                     }
+//                 }
+//             }
+//             if(ans){
+//                 cout<<"YES"<<endl;
+//             }
+//             else{
+//                 cout<<"NO"<<endl;
+//             }
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,k;
+//         cin>>n>>k;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//           cin>>a[i];
+//         }
+//         unordered_map<int,int> freq;
+//         for(int i = 0 ; i<n ; i++){
+//             freq[a[i]]++;
+//         }
+//         multiset<int> st;
+//         for(auto i:freq){
+//             st.insert(i.second);
+//         }
+//         int ans = 0;
+//         int total = n;
+//         int offadd = 0;
+//         while(st.size() > 0){
+//             int size = st.size();
+//             int add = 0;
+//            if(total > k){
+//                 add--;
+//                 offadd--;
+//                 for (auto it = st.begin(); it != st.end(); ) {
+//                 if ((*it + offadd) == 0) {
+//                     it = st.erase(it);
+//                 } else {
+//                     ++it;
+//                 } 
+//               }
+//            }
+//            else if(total == k){
+//             ans++;
+//             int data = *st.begin() + offadd;
+//             st.erase(st.begin());
+//             offadd -= data;
+//             add -= data;
+//             for (auto it = st.begin(); it != st.end(); ) {
+//                 if ((*it + offadd) == 0) {
+//                     it = st.erase(it);
+//                 } else {
+//                     ++it;
+//                 } 
+//               }
+//            }
+//            else{
+//             if( (k-total)%(st.size()) == 0){
+//                 offadd++;
+//                 add++;
+//             }
+//             else{
+//                 offadd--;
+//                 add--;
+//                 for (auto it = st.begin(); it != st.end(); ) {
+//                 if ((*it + offadd) == 0) {
+//                     it = st.erase(it);
+//                 } else {
+//                     ++it;
+//                 } 
+//               }
+//             }
+//            }
+//            total = total + (size*add);
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//        int n;
+//        cin>>n;
+//        int a[n];
+//        for(int i = 0 ; i<n ; i++){
+//         cin>>a[i];
+//        }
+//        int part = 0;
+//        int cnt1 = 0;
+//        int cnt2 = 0;
+//        int cnt3 = 0;
+//        for(int i = 0 ; i<n ; i++){
+//         if(part == 3){
+//             break;
+//         }
+//         if(a[i] == 1) cnt1++;
+//         else if(a[i] == 2) cnt2++;
+//         else if(a[i] == 3) cnt3++;
+
+//         if(part == 0 && cnt2 + cnt3 <= cnt1 ){
+//             part++;
+//             while(cnt2 + (cnt3+1) <= cnt1 && a[i+1] == 3){
+//                 cnt3++;
+//                 i++;
+//             }
+//             cnt1 = 0;
+//             cnt2 = 0;
+//             cnt3 = 0;
+//         }
+//         else if(part == 1 && cnt3 <= cnt1 + cnt2 ){
+//             part++;
+//             cnt1 = 0;
+//             cnt2 = 0;
+//             cnt3 = 0;
+//         }
+//         else if(part > 1){
+//             part++;
+//         }
+//        }
+//        if(part == 3){
+//         cout<<"YES"<<endl;
+//        }
+//        else{
+//         cout<<"NO"<<endl;
+//        }
+//     }
+// }
