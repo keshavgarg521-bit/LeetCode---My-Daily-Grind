@@ -1809,3 +1809,87 @@
 //        }
 //     }
 // }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int a,b,c;
+//         cin>>a>>b>>c;
+//         if(c%2 == 0){
+//             a = a + (c/2);
+//             b = b + (c/2);
+//         }
+//         else{
+//             a = a + 1 + (c/2);
+//             b = b + (c/2);
+//         }
+
+//         if(a<=b){
+//             cout<<"Second"<<endl;
+//         }
+//         else{
+//             cout<<"First"<<endl;
+//         }
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int odd = 0;
+//         for(int i = 0 ; i<n ; i++){
+//             if(a[i]%2 != 0){
+//              odd++;
+//             }
+//         }
+//         if(odd%2 == 0){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n];
+        for(int i = 0 ; i<n ; i++){
+            cin>>a[i];
+        }
+        bool ans = false;
+        int mini = INT_MAX;
+        for(int i = 0 ; i<n-1 ; i++){
+            if(a[i+1] < a[i]){
+                ans = true;
+                break;
+            }
+            mini = min(mini,(a[i+1]-a[i]));
+        }
+        mini = mini/2 + 1;
+        if(ans){
+            cout<<0<<endl;
+        }
+        else{
+            cout<<mini<<endl;
+        }
+    }
+}
