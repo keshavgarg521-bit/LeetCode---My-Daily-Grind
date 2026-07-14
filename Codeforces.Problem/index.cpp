@@ -1863,33 +1863,809 @@
 //     }
 // }
 
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        int a[n];
-        for(int i = 0 ; i<n ; i++){
-            cin>>a[i];
-        }
-        bool ans = false;
-        int mini = INT_MAX;
-        for(int i = 0 ; i<n-1 ; i++){
-            if(a[i+1] < a[i]){
-                ans = true;
-                break;
-            }
-            mini = min(mini,(a[i+1]-a[i]));
-        }
-        mini = mini/2 + 1;
-        if(ans){
-            cout<<0<<endl;
-        }
-        else{
-            cout<<mini<<endl;
-        }
-    }
-}
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         bool ans = false;
+//         int mini = INT_MAX;
+//         for(int i = 0 ; i<n-1 ; i++){
+//             if(a[i+1] < a[i]){
+//                 ans = true;
+//                 break;
+//             }
+//             mini = min(mini,(a[i+1]-a[i]));
+//         }
+//         mini = mini/2 + 1;
+//         if(ans){
+//             cout<<0<<endl;
+//         }
+//         else{
+//             cout<<mini<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,k,x;
+//         cin>>n>>k>>x;
+        
+//         if(x != 1){
+//             cout<<"YES"<<endl;
+//             cout<<n<<endl;
+//             for(int i = 0 ; i<n ; i++){
+//                 cout<<1<<" ";
+//             }
+//             cout<<endl;
+//         }
+//         else{
+//             if(k == 1){
+//                 cout<<"NO";
+//             }
+//             else if(k == 2){
+//                 if(n%2 == 0){
+//                     cout<<"YES"<<endl;
+//                     cout<<(n/2)<<endl;
+//                     for(int i = 0 ; i<(n/2) ; i++){
+//                         cout<<2<<" ";
+//                     }
+//                 }
+//                 else{
+//                     cout<<"NO";
+//                 }
+//             }
+//             else{
+//                 if(n == 1){
+//                     cout<<"NO";
+//                 }
+//                 else{
+//                     if(n%2 == 0){
+//                         cout<<"YES"<<endl;
+//                         cout<<(n/2)<<endl;
+//                         for(int i = 0 ; i<(n/2) ; i++){
+//                         cout<<2<<" ";
+//                       }
+//                     }
+//                     else{
+//                         cout<<"YES"<<endl;
+//                         cout<<(n/2)<<endl;
+//                         for(int i = 0 ; i<((n/2)-1) ; i++){
+//                         cout<<2<<" ";
+//                         }
+//                         cout<<3<<" ";
+//                     }
+//                 }
+//             }
+//             cout<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         vector<int> a(n);
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         sort(a.begin(),a.end());
+//         vector<int> b;
+//         vector<int> c;
+//         int i = 0;
+//         while(i<n){
+//             if(a[i] == a[0]){
+//                 b.push_back(a[i]);
+//                 i++;
+//             }
+//             else{
+//                 break;
+//             }
+//         }
+//         while(i<n){
+//             c.push_back(a[i]);
+//             i++;
+//         }
+//         if(c.size() == 0){
+//             cout<<-1<<endl;
+//         }
+//         else{
+//             cout<<b.size()<<" "<<c.size()<<endl;
+//             for(int i = 0 ; i<b.size() ; i++){
+//                 cout<<b[i]<<" ";
+//             }
+//             cout<<endl;
+//             for(int i = 0 ; i<c.size() ; i++){
+//                 cout<<c[i]<<" ";
+//             }
+//             cout<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int cnt1 = 0;
+//         int cnt0 = 0;
+//         for(int i = 0 ; i<n ; i++){
+//             if(a[i] == 1){
+//                 cnt1++;
+//             }
+//             else{
+//                 cnt0++;
+//             }
+//         }
+//         int ans = 0;
+//         int size = 0;
+//         if(n%2 == 0){
+//          size = n/2;
+//         }
+//         else{
+//             size = n/2 + 1;
+//         }
+
+//         if(cnt1 < size){
+//           ans = size-cnt1;
+//           cnt0 = cnt0-ans;
+//         }
+//         if(cnt0%2 != 0){
+//             ans++;
+//           }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int b[n];
+//         for(int i = 0 ; i<n ; i++){
+//             b[i] = n - a[i]+1;
+//         }
+//         for(int i = 0 ; i<n ; i++){
+//             cout<<b[i]<<" ";
+//         }
+//         cout<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int i = 0;
+//         int j = 0;
+//         int maxi = 0;
+//         while(j<n){
+//           if(a[j] == 0){
+//             j++;
+//             if(a[i] == 1){
+//                 i = j;
+//             }
+//           }
+//           else{
+//             if(a[i] == 0){
+//             maxi = max(maxi,(j-i));
+//             }
+//             j++;
+//             i = j;
+//           }
+//         }
+//         if(a[i] == 0){
+//             maxi = max(maxi,(j-i));
+//             }
+//         cout<<maxi<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long n,k;
+//         cin>>n>>k;
+//         bool ans = false;
+//         if(n%k == 0 || n%2 == 0){
+//             ans = true;
+//         }
+//         else{
+//             n = n-k;
+//             if(n > 0){
+//                 if(n%2 == 0){
+//                     ans = true;
+//                 }
+//             }
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int a,b,c,d;
+//         cin>>a>>b>>c>>d;
+//         int fans = 0;
+//         bool ans = true;
+//         if(d<b){
+//             ans = false;
+//         }
+//         else{
+//             fans = d-b;
+//             if( (a+(d-b)) < c){
+//                 ans = false;
+//             }
+//             else{
+//                 fans = fans + (a+(d-b)) - c;
+//             }
+//         }
+//         if(ans){
+//            cout<<fans<<endl; 
+//         }
+//         else{
+//             cout<<-1<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int x,k;
+//         cin>>x>>k;
+//         if(x%k != 0){
+//             cout<<1<<endl;
+//             cout<<x<<endl;
+//         }
+//         else{
+//             cout<<2<<endl;
+//             cout<<x-1<<" "<<1<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string s;
+//         cin>>s;
+//         int i = 0 ; 
+//         int j = s.size()-1;
+//         while(i<j){
+//             if(s[i] == s[j]){
+//                 break;
+//             }
+//             i++;
+//             j--;
+//         }
+//         if(j>=i){
+//            cout<<(j-i+1)<<endl;
+//         }
+//         else{
+//             cout<<0<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int gcd(int a, int b) {
+//     while (b != 0) {
+//         int t = a % b;
+//         a = b;
+//         b = t;
+//     }
+//     return a;
+// }
+
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         bool ans = false;
+//         for(int i = 0 ; i<n-1 ; i++){
+//             for(int j = i+1 ; j<n ; j++){
+//                 if(gcd(a[i],a[j]) <= 2){
+//                     ans = true;
+//                     break;
+//                 }
+//             }
+//             if(ans){
+//                 break;
+//             }
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         vector<int> prefix(n);
+//         int cnt2 = 0;
+//         for(int i = 0 ; i<n ; i++){
+//             if(a[i] == 2){
+//                 cnt2++;
+//                 prefix[i] = cnt2;
+//             }
+//         }
+//         int total = cnt2;
+//         if(total == 0){
+//             cout<<1<<endl;
+//         }
+//         else{
+//             int index = -1;
+//             for(int i = 0 ; i<n ; i++){
+//                 if((total-prefix[i]) == prefix[i]){
+//                     index = i+1;
+//                     break;
+//                 }
+//             }
+//             cout<<index<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         vector<long long> a(n);
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         if(a[0] == a[n-1]){
+//             cout<<"NO"<<endl;
+//         }
+//         else{
+//             reverse(a.begin(),a.end());
+//             cout<<"YES"<<endl;
+//             if(a[1] == a[0]){
+//                 cout<<a[0]<<" ";
+//                 int j = 2;
+//                 while(j<n){
+//                     if(a[j] == a[1]){
+//                         j++;
+//                     }
+//                     else{
+//                         break;
+//                     }
+//                 }
+//                 for(int i = j ; i<n ; i++){
+//                     cout<<a[i]<<" ";
+//                 }
+//                 for(int i = 1 ; i<j ; i++){
+//                 cout<<a[i]<<" ";
+//                 }
+//             }
+//             else{
+//                 for(int i = 0 ; i<n ; i++){
+//                     cout<<a[i]<<" ";
+//                 }
+//             }
+//             cout<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         long long a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int ans = 0;
+//         int i = 0;
+//         while(i<n-1){
+//             if( (a[i]%2 == 0 && a[i+1]%2 != 0) || (a[i]%2 != 0 && a[i+1]%2 == 0) ){
+//                 i++;
+//             }
+//             else{
+//                 i++;
+//                 ans++;
+//             } 
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         long long ans = 0;
+//         if(n < 10){
+//             ans = n;
+//         }
+//         else{
+//             ans = ans + 9;
+//             long long i = 1;
+//             long long mult = 10;
+//             long long num = 10;
+//             while(num <= n){
+//                 num = mult*i;
+//                 ans++;
+//                 i++;
+//                 if(i == 10){
+//                     mult = mult*10;
+//                     i = 1;
+//                 }
+//             }
+//             ans--;
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,a,b;
+//         cin>>n>>a>>b;
+//         if(n == a && n == b){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             if( (a+b) > n ){
+//                 cout<<"NO"<<endl;
+//             }
+//             else{
+//                 if(abs(a-(n-b)) >= 2){
+//                     cout<<"YES"<<endl;
+//                 }
+//                 else{
+//                     cout<<"NO"<<endl;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int digit = a[0];
+//         for(int i = 1 ; i<n ; i++){
+//             digit = digit^a[i];
+//         }
+//         int dig = digit^a[0];
+//         for(int i = 1 ; i<n ; i++){
+//             dig = dig ^ (a[i]^digit);
+//         }
+//         if(n == 1){
+//             cout<<a[0]<<endl;
+//         }
+//         else{
+//         if(dig == 0 && n != 1){
+//             cout<<digit<<endl;
+//         }
+//         else{
+//             cout<<-1<<endl;
+//         }
+//       }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         string s;
+//         cin>>s;
+//         string temp;
+//         temp = s;
+//         vector<int> cnt1;
+//         vector<int> cnt0;
+//         for(int i = 0 ; i<s.size() ; i++){
+//             if(s[i] == '1'){
+//                 cnt1.push_back(i);
+//             }
+//             else{
+//                 cnt0.push_back(i);
+//             }
+//         }
+//         int j = 0;
+//         if(cnt1.size()>cnt0.size()){
+//             for(int i = 0 ; i<cnt1.size() ; i++){
+//                 if(j<cnt0.size()){
+//                     swap(s[cnt0[j]],s[cnt1[i]]);
+//                     j++;
+//                 }
+//                 else{
+//                     break;
+//                 }
+//             }
+//         }
+//         else{
+//             for(int i = 0 ; i<cnt0.size() ; i++){
+//                 if(j<cnt1.size()){
+//                     swap(s[cnt1[j]],s[cnt0[i]]);
+//                     j++;
+//                 }
+//                 else{
+//                     break;
+//                 }
+//             }
+//         }
+//         int index = s.size();
+//         for(int i = 0 ; i<s.size() ; i++){
+//             if(s[i] == temp[i]){
+//                 index = i;
+//                 break;
+//             }
+//         }
+//         cout<<(s.size()-index)<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,p;
+//         cin>>n>>p;
+//         vector<int> a(n);
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         vector<int> b(n);
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>b[i];
+//         }
+        
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string s;
+//         cin>>s;
+//         int i = 0;
+//         int j = 0;
+//         int maxi = 0;
+//         while(j<n){
+//             if(s[j] == '#'){
+//                 j++;
+//                 if(s[i] == '*'){
+//                     i = j;
+//                 }
+//             }
+//             else{
+//                 if(s[i] == '#'){
+//                maxi = max(maxi,(j-i));
+//                }
+//                j++;
+//                i = j;
+//             }
+//         }
+//         if(s[i] == '#'){
+//             maxi = max(maxi,(j-i));
+//         }
+//         cout<<((maxi+2-1)/2)<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         long long a[n];
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         long long rem = 0;
+//         long long i = 0;
+//         while(i < n){
+//             a[i] = a[i] + rem;
+//             rem = 0;
+//             if(a[i] >= i+1 ){
+//                 rem = a[i] - (i + 1);
+//                 a[i] = (i+1);
+//             }
+//             else{
+//                 break;
+//             }
+//             i++;
+//         }
+//         if( i != n){
+//             cout<<"NO"<<endl;
+//         }
+//         else {
+//             cout<<"YES"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// void dfs(unordered_map<int,list<int>> &m,
+//          vector<int> &comp,
+//          unordered_map<int,bool> &visited,
+//          int node,
+//          int id){
+
+//     visited[node] = true;
+//     comp[node] = id;
+
+//     for(auto i : m[node]){
+//         if(!visited[i]){
+//             dfs(m, comp, visited, i, id);
+//         }
+//     }
+// }
+
+// int main(){
+//     int t;
+//     cin >> t;
+
+//     while(t--){
+//         int n, x, y;
+//         cin >> n >> x >> y;
+
+//         vector<int> p(n);
+//         for(int i = 0; i < n; i++)
+//             cin >> p[i];
+
+//         unordered_map<int,list<int>> m;
+
+//         // Build graph
+//         for(int i = 1; i + x <= n; i++){
+//             m[i].push_back(i + x);
+//             m[i + x].push_back(i);
+//         }
+
+//         for(int i = 1; i + y <= n; i++){
+//             m[i].push_back(i + y);
+//             m[i + y].push_back(i);
+//         }
+
+//         unordered_map<int,bool> visited;
+//         vector<int> comp(n + 1, 0);
+
+//         int id = 1;
+//         for(int i = 1; i <= n; i++){
+//             if(!visited[i]){
+//                 dfs(m, comp, visited, i, id);
+//                 id++;
+//             }
+//         }
+
+//         bool ans = true;
+
+//         for(int i = 1; i <= n; i++){
+//             if(comp[i] != comp[p[i-1]]){
+//                 ans = false;
+//                 break;
+//             }
+//         }
+
+//         if(ans)
+//             cout << "YES\n";
+//         else
+//             cout << "NO\n";
+//     }
+// }
