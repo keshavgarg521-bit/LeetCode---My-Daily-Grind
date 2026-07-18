@@ -2669,3 +2669,122 @@
 //             cout << "NO\n";
 //     }
 // }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long n,p;
+//         cin>>n>>p;
+//         long long a[n];
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         long long b[n];
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>b[i];
+//         }
+//         vector<pair<long long,long long>> v;
+//         for(int i = 0  ; i<n ; i++){
+//             if(b[i] < p){
+//                 v.push_back({b[i],a[i]});
+//             }
+//         }
+//         sort(v.begin(),v.end());
+//         long long ans = p;
+//         long long rem = n-1;
+//         for(auto i:v){
+//             if(i.second <= rem){
+//                 ans = ans + (i.second * i.first);
+//                 rem = rem-i.second;
+//             }
+//             else{
+//                 ans = ans + (rem * i.first);
+//                 rem = 0;
+//             }
+            
+//             if(rem == 0){
+//                 break;
+//             }
+//         }
+//         if(rem > 0){
+//             ans = ans + (rem * p);
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//       int n;
+//       cin >> n;
+//       long long sum = 0;
+//       long long mini1 = INT_MAX;
+//       long long mini2 = INT_MAX;
+
+//       for (int i = 0; i < n; i++) {
+//         int m;
+//         cin >> m;
+
+//         vector<long long> a(m);
+
+//         for (int j = 0; j < m; j++) {
+//             cin >> a[j];
+//         }
+   
+//         sort(a.begin(),a.end());
+//         mini1 = min(mini1 , a[0]);
+//         mini2 = min(mini2 , a[1]);
+//         sum = sum + a[1];
+//     }
+//     cout<<(sum-mini2+mini1)<<endl;
+//   }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,k;
+//         cin>>n>>k;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         unordered_map<int,set<int>> m;
+//         for(int i = 0 ; i<n ; i++){
+//             if(a[i]%k == 0){
+//                 a[i] = k;
+//             }
+//             else{
+//                 a[i] = a[i]%k;
+//             }
+//             m[a[i]].insert(i);
+//         }
+//         priority_queue<int> q;
+//         for(auto i:m ){
+//             q.push(i.first);
+//         }
+//         vector<int> ans;
+//         while(!q.empty()){
+//             int top = q.top();
+//             q.pop();
+//             for(auto j:m[top] ){
+//                 ans.push_back(j+1);
+//             }
+//         }
+//         for(int i = 0 ; i<n ; i++){
+//             cout<<ans[i]<<" ";
+//         }
+//         cout<<endl;
+//     }
+// }

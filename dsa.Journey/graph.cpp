@@ -51,16 +51,22 @@
 //     g.print();
 // }
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int n;
+//     cout<<"enter the value of number of node"<<endl;
+//     cin>>n;
+
+//     int m;
+//     cout<<"enter the number of edges"<<endl;
+//     cin>>m;
+
+    
+// }
+
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    int n;
-    cout<<"enter the value of number of node"<<endl;
-    cin>>n;
-
-    int m;
-    cout<<"enter the number of edges"<<endl;
-    cin>>m;
-
     
 }
