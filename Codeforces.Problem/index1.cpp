@@ -181,3 +181,72 @@
 //         }
 //     }
 // }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//     int n;
+//     cin>>n;
+//     int a[n];
+//     for(int i = 0 ; i<n ; i++){
+//         cin>>a[i];
+//     }
+//     int b[n];
+//     for(int i = 0 ; i<n ; i++){
+//         cin>>b[i];
+//     }
+//     unordered_map<int,bool> m;
+//     unordered_map<int,bool> m1;
+//     unordered_map<int,int> p;
+//     unordered_map<int,int> p1;
+//     int i = 0;
+//     while(i<n){
+//         if(m[a[i]] == false){
+//             m[a[i]] = true;
+//         }
+//         int j = i+1;
+//         while(j<n){
+//             if(a[i] != a[j]){
+//                 break;
+//             }
+//             j++;
+//         }
+//         p[a[i]] = max(p[a[i]], (j-i) );
+//         i = j;
+//     }
+//     i = 0;
+//     while(i<n){
+//         if(m1[b[i]] == false){
+//             m1[b[i]] = true;
+//         }
+//         int j = i+1;
+//         while(j<n){
+//             if(b[i] != b[j]){
+//                 break;
+//             }
+//             j++;
+//         }
+//         p1[b[i]] = max(p1[b[i]] ,(j-i) );
+//         i = j;
+//     }
+//     int maxi = INT_MIN;
+//     for(auto i:p ){
+//        if(m[i.first] == m1[i.first]){
+//         maxi = max(maxi,(i.second + p1[i.first]));
+//        }
+//        else{
+//         maxi = max(maxi,i.second);
+//        }
+//     }
+//     for(auto i:p1 ){
+//        if(m[i.first] != m1[i.first]){
+//         maxi = max(maxi,i.second);
+//        }
+//     }
+//     cout<<maxi<<endl;  
+//   }
+// }
+
