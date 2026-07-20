@@ -250,31 +250,105 @@
 //   }
 // }
 
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        string s;
-        cin>>s;
-        unordered_map<char,long> left;
-        unordered_map<char,int> right;
-        for(int i = 0 ; i<s.size() ; i++){
-            right[s[i]]++;
-        }
-        int maxi = INT_MIN;
-        for(int i = 0 ; i<s.size() ; i++){
-            left[s[i]]++;
-            right[s[i]]--;
-            if(right[s[i]] == 0){
-                right.erase(s[i]);
-            }
-            int sum = left.size() + right.size();
-            maxi = max(maxi,sum);
-        }
-        cout<<maxi<<endl;
-    }
-}
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string s;
+//         cin>>s;
+//         unordered_map<char,long> left;
+//         unordered_map<char,int> right;
+//         for(int i = 0 ; i<s.size() ; i++){
+//             right[s[i]]++;
+//         }
+//         int maxi = INT_MIN;
+//         for(int i = 0 ; i<s.size() ; i++){
+//             left[s[i]]++;
+//             right[s[i]]--;
+//             if(right[s[i]] == 0){
+//                 right.erase(s[i]);
+//             }
+//             int sum = left.size() + right.size();
+//             maxi = max(maxi,sum);
+//         }
+//         cout<<maxi<<endl;
+//     }
+// }
+
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         long long n;
+//         cin >> n;
+
+//         if (n % 2 == 0) {
+//             cout << n / 2 << " " << n / 2 << "\n";
+//             continue;
+//         }
+
+//         long long spf = -1;
+
+//         for (long long i = 3; i * i <= n; i += 2) {
+//             if (n % i == 0) {
+//                 spf = i;
+//                 break;
+//             }
+//         }
+
+//         if (spf == -1) {
+//             cout << 1 << " " << n - 1 << "\n";
+//         } else {
+//             long long d = n / spf;
+//             cout << d << " " << n - d << "\n";
+//         }
+//     }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         char c;
+//         cin >> n >> c;
+
+//         string s;
+//         cin >> s;
+
+//         if (c == 'g') {
+//             cout << 0 << '\n';
+//             continue;
+//         }
+
+//         string temp = s + s;
+
+//         int lastGreen = -1;
+//         int ans = 0;
+
+//         for (int i = 2 * n - 1; i >= 0; i--) {
+
+//             if (temp[i] == 'g')
+//                 lastGreen = i;
+
+//             if (i < n && temp[i] == c)
+//                 ans = max(ans, lastGreen - i);
+//         }
+
+//         cout << ans << '\n';
+//     }
+// }
+
