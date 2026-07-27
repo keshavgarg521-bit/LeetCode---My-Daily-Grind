@@ -352,3 +352,150 @@
 //     }
 // }
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int n,d;
+//     cin>>n>>d;
+//     int p[n];
+//     for(int i = 0 ; i<n ; i++){
+//         cin>>p[i];
+//     }
+//     priority_queue<int> q;
+//     for(int i = 0 ; i<n ; i++){
+//         q.push(p[i]);
+//     }
+//     int rem = n;
+//     int ans = 0;
+//     while(rem > 0){
+//       int front = q.top();
+//       rem--;
+//       q.pop();
+//       int num = (d/front);
+//       if(num <= rem ){
+//         ans++;
+//         rem = rem - num;
+//       }
+//     }
+//     cout<<ans;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int n,m;
+//     cin>>n>>m;
+//     unordered_map<int,list<int>> adj;
+//     while(m--){
+//         int u,v;
+//         cin>>u>>v;
+//         adj[u].push_back(v);
+//         adj[v].push_back(u);
+//     }
+//     vector<int> parent(n+1,-1);
+//     unordered_map<int,bool> visited;
+
+//     queue<int> q;
+//     q.push(1);
+//     visited[1] = true;
+//     while(!q.empty()){
+//         int top = q.front();
+//         q.pop();
+//         for(auto i:adj[top]){
+//             if(!visited[i]){
+//                 visited[i] = true;
+//                 q.push(i);
+//                 parent[i] = top;
+//             }
+//         }
+//     }
+//     vector<int> ans;
+//     int curr = n;
+//     bool check = true;
+//     while(curr != 1){
+//         ans.push_back(curr);
+//         curr = parent[curr];
+//         if(curr == -1){
+//             check = false;
+//             break;
+//         }
+//     }
+//     if(check){
+//     ans.push_back(1);
+//     reverse(ans.begin(),ans.end());
+//     cout<<ans.size()<<endl;
+//     for(int i = 0 ; i<ans.size() ; i++){
+//         cout<<ans[i]<<" ";
+//     }
+//     cout<<endl;
+//     }
+//     else{
+//         cout<<"IMPOSSIBLE"<<endl;
+//     }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     vector<vector<int>> adj(n + 1);
+
+//     for (int i = 0; i < n - 1; i++) {
+//         int u, v;
+//         cin >> u >> v;
+//         adj[u].push_back(v);
+//         adj[v].push_back(u);
+//     }
+
+//     vector<int> bfsOrder(n);
+//     vector<int> pos(n + 1);
+
+//     for (int i = 0; i < n; i++) {
+//         cin >> bfsOrder[i];
+//         pos[bfsOrder[i]] = i;
+//     }
+
+//     // BFS must start from node 1
+//     if (bfsOrder[0] != 1) {
+//         cout << "No";
+//         return 0;
+//     }
+
+//     // Sort neighbours according to their position in given BFS
+//     for (int i = 1; i <= n; i++) {
+//         sort(adj[i].begin(), adj[i].end(), [&](int a, int b) {
+//             return pos[a] < pos[b];
+//         });
+//     }
+
+//     vector<int> result;
+//     vector<bool> visited(n + 1, false);
+
+//     queue<int> q;
+//     q.push(1);
+//     visited[1] = true;
+
+//     while (!q.empty()) {
+//         int node = q.front();
+//         q.pop();
+
+//         result.push_back(node);
+
+//         for (int child : adj[node]) {
+//             if (!visited[child]) {
+//                 visited[child] = true;
+//                 q.push(child);
+//             }
+//         }
+//     }
+
+//     if (result == bfsOrder)
+//         cout << "Yes";
+//     else
+//         cout << "No";
+
+//     return 0;
+// }
