@@ -499,3 +499,464 @@
 
 //     return 0;
 // }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+
+//     int n, m;
+//     cin >> n >> m;
+
+//     vector<vector<pair<int, int>>> adj(n + 1);
+
+//     while (m--) {
+//         int u, v, w;
+//         cin >> u >> v >> w;
+
+//         adj[u].push_back({v, w});
+//         adj[v].push_back({u, w});
+//     }
+
+//     vector<long long> dist(n + 1, LLONG_MAX);
+//     vector<int> parent(n + 1, -1);
+
+//     priority_queue<
+//         pair<long long, int>,
+//         vector<pair<long long, int>>,
+//         greater<pair<long long, int>>
+//     > pq;
+
+//     dist[1] = 0;
+//     pq.push({0, 1});
+
+//     while (!pq.empty()) {
+
+//         auto [d, node] = pq.top();
+//         pq.pop();
+
+//         if (d > dist[node])
+//             continue;
+
+//         for (auto [next, weight] : adj[node]) {
+
+//             if (d + weight < dist[next]) {
+
+//                 dist[next] = d + weight;
+//                 parent[next] = node;
+
+//                 pq.push({dist[next], next});
+//             }
+//         }
+//     }
+
+//     if (dist[n] == LLONG_MAX) {
+//         cout << -1;
+//         return 0;
+//     }
+
+//     vector<int> path;
+
+//     int curr = n;
+
+//     while (curr != -1) {
+//         path.push_back(curr);
+//         curr = parent[curr];
+//     }
+
+//     reverse(path.begin(), path.end());
+
+//     for (int x : path) {
+//         cout << x << " ";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int a,b,c;
+//         cin>>a>>b>>c;
+//         int ans = 0;
+//         while(1){
+//             if(a == b || b == c || c == a){
+//                 break;
+//             }
+//             int maxi = max(a,b);
+//             maxi = max(maxi,c);
+//             int mini = min(a,b);
+//             mini = min(mini,c);
+//            if(maxi == a){
+//             if(mini == b){
+//                b++;
+//                a--;
+//             }
+//             else{
+//                 c++;
+//                 a--;
+//             }
+//            }
+//            else if(maxi == b){
+//             if(mini == a){
+//                 b--;
+//                 a++;
+//             }
+//             else{
+//                 b--;
+//                 c++;
+//             }
+//            }
+//            else{
+//             if(b == mini){
+//                 b++;
+//                 c--;
+//             }
+//             else{
+//                 a++;
+//                 c--;
+//             }
+//            }
+//            ans++;
+//         }
+//         cout<<ans<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string s;
+//         cin>>s;
+//         int index = n-2;
+//         int maxi = 0;
+//         for(int i = 1 ; i<n-1 ; i++){
+//             if(s[i] != s[i-1] && s[i] != s[i+1] && s[i+1] != s[i-1]){
+//                 if(maxi < 1){
+//                     maxi = 1;
+//                     index = i;
+//                 }
+//             }
+//             else if(s[i] != s[i-1] && s[i] != s[i+1] && s[i+1] == s[i-1]){
+//                 int cnt1 = 1;
+//                 int cnt2 = 1;
+//                 int j = i-2;
+//                 int k = i+2;
+//                 while(j--){
+//                     if(s[i-1] == s[j]){
+//                         cnt1++;
+//                     }
+//                     else{
+//                         break;
+//                     }
+//                 }
+//                 while(k<n){
+//                     if(s[i+1] == s[j]){
+//                         cnt2++;
+//                     }
+//                     else{
+//                         break;
+//                     }
+//                     k++;
+//                 }
+//                 int sum = cnt1 + cnt2;
+//                 if(maxi < sum){
+//                     maxi = sum;
+//                     index = i;
+//                 }
+//             }
+//         }
+//         string ans;
+//         int i = 0;
+//         while(i<n){
+//             if(i != index){
+//                 ans.push_back(s[i]);
+//             }
+//             int j = i+1;
+//             while(j<n){
+//                 if(j == index){
+//                     j++;
+//                 }
+//                 else{
+//                 if(s[i] == s[j]){
+//                     j++;
+//                 }
+//                 else{
+//                     break;
+//                 }
+//                }
+//             }
+//             i = j;
+//         }
+//         cout<<ans.size()<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string a;
+//         cin>>a;
+//         string b;
+//         cin>>b;
+//         int acnt1 = 0;
+//         int acnt2 = 0;
+//         int bcnt2 = 0;
+//         int bcnt1 = 0;
+//         for(int i = 0 ; i<n ; i += 2){
+//             if(a[i] == '1'){
+//                 acnt1++;
+//             }
+//             if(b[i] == '1'){
+//                 bcnt2++;
+//             }
+//         }
+//         for(int i = 1 ; i<n; i+=2 ){
+//             if(a[i] == '1'){
+//                 acnt2++;
+//             }
+//             if(b[i] == '1'){
+//                 bcnt1++;
+//             }
+//         }
+//         if(acnt1 == bcnt2 && acnt2 == bcnt1){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int b[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>b[i];
+//         }
+//         unordered_map<int,list<int>> m;
+//         for(int i = 0 ; i<n ; i++){
+//             m[b[i]].push_back(i);
+//         }
+//         if(m[0].size() == 0){
+//            cout<<-1<<endl;
+//         }
+//         else if(m[0].size() == n){
+//             for(int i = 0 ; i<n ; i++){
+//                 cout<<1<<" ";
+//             }
+//             cout<<endl;
+//         }
+//         else{
+//             priority_queue<int, vector<int>, greater<int>> pq;
+//             for(auto i:m){
+//                 pq.push(i.first);
+//             }
+//             vector<int> ans(n);
+//             bool ch = true;
+//             int sum = 0;
+//             int maxi = 0;
+//             while(!pq.empty()){
+//                 int top1 = pq.top();
+//                 pq.pop();
+//                 if(pq.empty()){
+//                    for(auto j:m[top1]){
+//                     ans[j] = maxi + 1;
+//                    }
+//                 }
+//                 else{
+//                     int top2 = pq.top();
+//                     int req = top2 - sum;
+//                     if( ( (req)%(m[top1].size()) ) != 0 ){
+//                         ch = false;
+//                         break;
+//                     }
+//                     else{
+//                         int num = (req)/(m[top1].size());
+//                         if(num <= maxi){
+//                            ch = false;
+//                            break;
+//                         }
+//                         for(auto k:m[top1]){
+//                             ans[k] = num;
+//                             maxi = max(maxi,ans[k]);
+//                             sum = sum + num;
+//                         }
+//                     }
+//                 }
+//             }
+//             if(ch == false){
+//                cout<<-1<<endl;
+//             }
+//             else{
+//                 for(int i = 0 ; i<n ; i++){
+//                     cout<<ans[i]<<" ";
+//                 }
+//                 cout<<endl;
+//             }
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int e = sqrt(n+1);
+//         bool ans = true;
+//         for(int i = 2 ; i<=e ; i++){
+//             if( (n+1)%i == 0 ){
+//                 ans = false;
+//             }
+//         }
+//         if(ans){
+//             cout<<"YES"<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         vector<int> temp;
+//         temp.push_back(a[0]);
+//         int i = 1;
+//         while(i<n){
+//             temp.push_back(a[i]);
+//             if(a[i] == a[i-1]){
+//                 int j = i+1;
+//                 while(j<n){
+//                     if(a[j] == a[i]){
+//                         j++;
+//                     }
+//                     else{
+//                         break;
+//                     }
+//                 }
+//                 i = j;
+//             }
+//             else{
+//                 i++;
+//             }
+//         }
+//         if(temp.size() == 1){
+//             cout<<1<<endl;
+//         }
+//         else if(temp.size() == 2){
+//             if(temp[0] == temp[1]){
+//                 cout<<1<<endl;
+//             }
+//             else{
+//                 cout<<2<<endl;
+//             }
+//         }
+//         else{
+//             int maxi = 0;
+//             int ab = 0;
+//             int mp = 0;
+//             while(ab+1<temp.size()){
+//                 if(temp[ab] == temp[ab+1]){
+//                     mp++;
+//                     ab++;
+//                 }
+//                 ab++;
+//             }
+//             int j = 0;
+//             while(j<temp.size()){
+//                 vector<int> cut;
+//                 vector<int> man;
+//                 if(j+1 < temp.size() && temp[j] == temp[j+1]){
+//                     cut.push_back(temp[j+1]);
+//                     man.push_back(temp[j+1]);
+//                     if(j-1>=0){
+//                         cut.push_back(temp[j-1]);
+//                         cut.push_back(temp[j]);
+//                         man.push_back(temp[j]);
+//                         man.push_back(temp[j-1]);
+//                         if(j-2>=0){
+//                             cut.push_back(temp[j-2]);
+//                             man.push_back(temp[j-2]);
+//                         }
+//                     }
+//                     else{
+//                         cut.push_back(temp[j]);
+//                         man.push_back(temp[j]);
+//                     }
+//                 }
+//                 else if(j-1 >= 0 && temp[j-1] == temp[j]){
+//                     cut.push_back(temp[j-1]);
+//                     man.push_back(temp[j-1]);
+//                     if(j+1<temp.size()){
+//                         cut.push_back(temp[j+1]);
+//                         cut.push_back(temp[j]);
+//                         man.push_back(temp[j]);
+//                         man.push_back(temp[j+1]);
+//                         if(j+2<temp.size()){
+//                             cut.push_back(temp[j+2]);
+//                             man.push_back(temp[j+2]);
+//                         }
+//                     }
+//                     else{
+//                         cut.push_back(temp[j]);
+//                         man.push_back(temp[j]);
+//                     }
+//                 }
+//                 int pairs = 0;
+//                 int k = 0;
+//                 while(k+1<cut.size()){
+//                     if(cut[k] == cut[k+1]){
+//                         pairs++;
+//                         k++;
+//                     }
+//                     k++;
+//                 }
+//                 k = 0;
+//                 int pairs1 = 0;
+//                 while(k+1<cut.size()){
+//                     if(man[k] == man[k+1]){
+//                         pairs1++;
+//                         k++;
+//                     }
+//                     k++;
+//                 }
+//                 maxi = max(maxi,(pairs1-pairs));
+//                 j++;
+//             }
+//             mp = mp - maxi;
+//             cout<<temp.size()-mp<<endl;
+//         }
+//     }
+// }
