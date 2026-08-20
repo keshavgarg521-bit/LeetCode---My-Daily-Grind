@@ -960,3 +960,140 @@
 //         }
 //     }
 // }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//     int n,m;
+//     cin>>n>>m;
+//     vector<string> inp;
+//     for(int i = 0 ; i<n ; i++){
+//         string s;
+//         cin>>s;
+//         inp.push_back(s);
+//     }
+//     vector<string> st;
+//     for(int i = 0 ; i<m ; i++){
+//         string s;
+//         cin>>s;
+//         st.push_back(s);
+//     }
+//     unordered_map<char,bool> mp;
+//     for(int i = 0 ; i<n ; i++){
+//         char c = toupper(inp[i][0]);
+//         mp[c] = true; 
+//     }
+//     bool flag = true;
+//     for(int i = 0; i<m ; i++){
+//     for(int j = 0 ; j<st[i].size() ; j++){
+//         char c = toupper(st[i][j]);
+
+//         if(!mp[c]){
+//             flag = false;
+//             break;
+//         }
+//     }
+
+//     if(!flag){
+//         break;
+//     }
+// }
+//     if(flag){
+//         cout<<"YES"<<endl;
+//     }
+//     else{
+//         cout<<"NO"<<endl;
+//     }
+//   }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n, m;
+//         cin >> n >> m;
+
+//         vector<long long> a(n);
+//         vector<long long> b(m);
+
+//         for (int i = 0; i < n; i++) {
+//             cin >> a[i];
+//         }
+
+//         for (int i = 0; i < m; i++) {
+//             cin >> b[i];
+//         }
+//         long long bea = a[0] + n - 1;
+//         long long ver = b[0] + m - 1;
+//         if (ver <= bea) {
+//             cout << 1 << '\n'; 
+//         }
+//         else {
+//             cout << 2 << '\n';  
+//         }
+//     }
+
+//     return 0;
+// }
+
+#include<bits/stdc++.h>
+using namespace std;
+void solve(vector <int> &ans , int inp , unordered_map<int,list<int>> &adj , unordered_map<int,bool> &vis , int root){
+    if(adj[root].size() == 0){
+        if(inp != -1){
+            ans.push_back(inp);
+        }
+        return ;
+       }   
+        for(auto i:adj[root]){
+            int newinp = inp;
+          if(vis[i]){
+            newinp = i;
+          }
+          solve(ans,newinp,adj,vis,i);
+        }
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> p(n-1);
+        for(int i = 0 ; i<n-1 ; i++){
+            cin>>p[i];
+        }
+        int m;
+        cin>>m;
+        vector<int> a(m);
+        for(int i = 0 ; i<m ; i++){
+            cin>>a[i];
+        }
+        unordered_map<int,list<int>> adj;
+        for(int i = 0 ; i<n-1 ; i++){
+            int v = i+2;
+            int u = p[i];
+            adj[u].push_back(v);
+        }
+        unordered_map<int,bool> vis;
+        for(int i = 0 ; i<m ; i++){
+            vis[a[i]] = true;
+        }
+        int inp = -1;
+        vector<int> ans;
+        solve(ans,inp,adj,vis,1);
+        cout<<ans.size()<<" ";
+        for(int i = 0 ; i<ans.size() ; i++){
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+    }
+}
