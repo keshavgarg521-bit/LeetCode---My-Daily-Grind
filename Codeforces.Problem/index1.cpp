@@ -1044,56 +1044,160 @@
 //     return 0;
 // }
 
-#include<bits/stdc++.h>
-using namespace std;
-void solve(vector <int> &ans , int inp , unordered_map<int,list<int>> &adj , unordered_map<int,bool> &vis , int root){
-    if(adj[root].size() == 0){
-        if(inp != -1){
-            ans.push_back(inp);
-        }
-        return ;
-       }   
-        for(auto i:adj[root]){
-            int newinp = inp;
-          if(vis[i]){
-            newinp = i;
-          }
-          solve(ans,newinp,adj,vis,i);
-        }
-}
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        vector<int> p(n-1);
-        for(int i = 0 ; i<n-1 ; i++){
-            cin>>p[i];
-        }
-        int m;
-        cin>>m;
-        vector<int> a(m);
-        for(int i = 0 ; i<m ; i++){
-            cin>>a[i];
-        }
-        unordered_map<int,list<int>> adj;
-        for(int i = 0 ; i<n-1 ; i++){
-            int v = i+2;
-            int u = p[i];
-            adj[u].push_back(v);
-        }
-        unordered_map<int,bool> vis;
-        for(int i = 0 ; i<m ; i++){
-            vis[a[i]] = true;
-        }
-        int inp = -1;
-        vector<int> ans;
-        solve(ans,inp,adj,vis,1);
-        cout<<ans.size()<<" ";
-        for(int i = 0 ; i<ans.size() ; i++){
-            cout<<ans[i]<<" ";
-        }
-        cout<<endl;
-    }
-}
+// #include<bits/stdc++.h>
+// using namespace std;
+// void solve(vector <int> &ans , int inp , unordered_map<int,list<int>> &adj , unordered_map<int,bool> &vis , int root){
+//     if(adj[root].size() == 0){
+//         if(inp != -1){
+//             ans.push_back(inp);
+//         }
+//         return ;
+//        }   
+//         for(auto i:adj[root]){
+//             int newinp = inp;
+//           if(vis[i]){
+//             newinp = i;
+//           }
+//           solve(ans,newinp,adj,vis,i);
+//         }
+// }
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         vector<int> p(n-1);
+//         for(int i = 0 ; i<n-1 ; i++){
+//             cin>>p[i];
+//         }
+//         int m;
+//         cin>>m;
+//         vector<int> a(m);
+//         for(int i = 0 ; i<m ; i++){
+//             cin>>a[i];
+//         }
+//         unordered_map<int,list<int>> adj;
+//         for(int i = 0 ; i<n-1 ; i++){
+//             int v = i+2;
+//             int u = p[i];
+//             adj[u].push_back(v);
+//         }
+//         unordered_map<int,bool> vis;
+//         for(int i = 0 ; i<m ; i++){
+//             vis[a[i]] = true;
+//         }
+//         int inp = -1;
+//         vector<int> ans;
+//         solve(ans,inp,adj,vis,1);
+//         cout<<ans.size()<<" ";
+//         for(int i = 0 ; i<ans.size() ; i++){
+//             cout<<ans[i]<<" ";
+//         }
+//         cout<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// long long solve(long long a1,long long a2,long long h){
+//     long long ans = 0;
+//     ans = (a2-a1)*h;
+//     return ans;
+// }
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         long long w,h;
+//         cin>>w>>h;
+//         long long k;
+//         cin>>k;
+//         vector<long long> a(k);
+//         for(long long i = 0 ; i<k ; i++){
+//             cin>>a[i];
+//         }
+//         long long k1;
+//         cin>>k1;
+//         vector<long long> b(k1);
+//         for(long long i = 0 ; i<k1 ; i++){
+//             cin>>b[i];
+//         }
+//         long long k2;
+//         cin>>k2;   
+//         vector<long long> c(k2);
+//         for(long long i = 0 ; i<k2 ; i++){
+//             cin>>c[i];
+//         }
+//         long long k3;
+//         cin>>k3;    
+//         vector<long long> d(k3);
+//         for(long long i = 0 ; i<k3 ; i++){
+//             cin>>d[i];
+//         }
+//         long long maxi = 0;
+//         //1st case
+//         long long a1 = a[0];
+//         long long a2 = a[k-1];
+//         maxi = max(maxi,solve(a1,a2,h));
+
+//         a1 = b[0];
+//         a2 = b[k1-1];
+//         maxi = max(maxi,solve(a1,a2,h));
+
+//         a1 = c[0];
+//         a2 = c[k2-1];   
+//         maxi = max(maxi,solve(a1,a2,w));
+
+//         a1 = d[0];
+//         a2 = d[k3-1];   
+//         maxi = max(maxi,solve(a1,a2,w));
+//         cout<<maxi<<endl;
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long t;
+//     cin>>t;
+//     while(t--){
+//         long long n;
+//         cin>>n;
+//         vector<long long> a(n);
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         priority_queue<pair<long long,long long>> pq;
+//         for(long long i = 0 ; i<n ; i++){
+//             pq.push({a[i],i+1});
+//         }
+//         vector<long long> ans(n+1);
+//         ans[0] = 0;
+//         long long temp = 1;
+//         while(!pq.empty()){
+//             auto top = pq.top();
+//             pq.pop();
+//             long long ind1 = top.second;
+//             ans[ind1] = temp;
+//             if(!pq.empty()){
+//                 auto top1 = pq.top();
+//                 pq.pop();
+//                 ans[top1.second] = -1 * temp;
+//             }
+//             temp++;
+//         }
+//         long long ini = ans[0];
+//         long long sum = 0;
+//         for(long long i = 1 ; i<=n ; i++){
+//             long long dis = 2 * abs(ini-ans[i]) * a[i-1];
+//             sum = sum + dis;
+//         }
+//         cout<<sum<<endl;
+//         for(long long i = 0 ; i<=n ; i++){
+//             cout<<ans[i]<<" ";
+//         }
+//         cout<<endl;
+//     }
+// }
+
