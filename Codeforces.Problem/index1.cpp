@@ -1201,3 +1201,311 @@
 //     }
 // }
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int gcd(int a, int b)
+// {
+//     while (b != 0)
+//     {
+//         int remainder = a % b;
+//         a = b;
+//         b = remainder;
+//     }
+
+//     return a;
+// }
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         cout<<gcd(a[0],a[n-1])<<endl;
+//     }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     ios::sync_with_stdio(false);
+//     cin.tie(nullptr);
+
+//     int t;
+//     cin >> t;
+
+//     while (t--)
+//     {
+//         int n, m;
+//         cin >> n >> m;
+
+//         vector<int> freq(m + 1, 0);
+
+//         for (int i = 0; i < n; i++)
+//         {
+//             int x;
+//             cin >> x;
+//             freq[x]++;
+//         }
+
+//         // suffix[x] = number of carrots having size >= x
+//         vector<int> suffix(m + 2, 0);
+
+//         for (int x = m; x >= 1; x--)
+//         {
+//             suffix[x] = suffix[x + 1] + freq[x];
+//         }
+
+//         int ans = 0;
+
+//         for (int x = 1; x <= m; x++)
+//         {
+//             // All carrots >= x give one carrot of size x
+//             int current = suffix[x];
+
+//             // A carrot of size 2*x gives TWO x's,
+//             // so we need one additional x
+//             if (2 * x <= m)
+//             {
+//                 current += freq[2 * x];
+//             }
+
+//             ans = max(ans, current);
+//         }
+
+//         cout << ans << '\n';
+//     }
+
+//     return 0;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int r,b,p;
+//         cin>>r>>b>>p;
+//         if(r+b >= p){
+//             cout<<"Yes"<<"\n";
+//         }
+//         else{
+//             cout<<"No"<<"\n";
+//         }
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int cnt = 0;
+//         for(int i = 1 ; i<n-1 ; i++){
+//             if(a[i] > a[i-1] && a[i] > a[i+1]){
+//                 cnt++;
+//             }
+//         }
+//         cout<<cnt<<"\n";
+//     }
+// }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         string s;
+//         cin>>s;
+//         string temp;
+//         for(int i = 0 ; i<n ; i++){
+//             if(s[i] != 'a' && s[i] != 'e' && s[i] != 'i' && s[i] != 'o' && s[i] != 'u'){
+//                 temp.push_back(s[i]);
+//             }
+//         }
+//         bool ans = true;
+//         for(int i = 0 ; i<(temp.size()/2) ; i++){
+//             if(temp[i] != temp[temp.size()-1-i]){
+//                 ans = false;
+//                 break;
+//             }
+//         }
+//         if(temp.size() == 0){
+//             cout<<"EMPTY"<<"\n";
+//         }
+//         else if(ans){
+//             cout<<"PURGED"<<"\n";
+//         }
+//         else{
+//             cout<<"CORRUPTED"<<"\n";
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,s;
+//         cin>>n>>s;
+//         int a[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         int cnt = 0;
+//         unordered_map<int,int> m;
+//         for(int i = 0 ; i<n ; i++){
+//             int need = s-a[i];
+//             if(m[need] > 0){
+//                 cnt++;
+//                 m[need]--;
+//             }
+//             else{
+//                 m[a[i]]++;
+//             }
+//         }
+//         cout<<cnt<<"\n";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,T;
+//         cin>>n>>T;
+//         int c[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>c[i];
+//         }
+//         priority_queue<int, vector<int>, greater<int>> minHeap;
+//         for(int i = 0 ; i<n ; i++){
+//             minHeap.push(c[i]);
+//         }
+//         int sum = 0;
+//         int cnt = 0;
+//         int i = 0;
+//         while(cnt <= n && sum <= T ){
+//             sum = sum + minHeap.top();
+//             minHeap.pop();
+//             cnt++;
+//         }
+//         cout<<cnt-1<<"\n";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n,k;
+//         cin>>n>>k;
+//         vector<long long> a(n);
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//         }
+//         if(n<k){
+//             cout<<0<<endl;
+//         }
+//         else{
+//             long long sum = 0;
+//             for(int i = 0 ; i<k ; i++){
+//                 sum += a[i];
+//             }
+//             long long maxi = sum;
+//             for(int i = k ; i<n ; i++){
+//                 sum -= a[i-k];
+//                 sum += a[i];
+//                 maxi = max(maxi,sum);
+//             }
+//             cout<<maxi<<"\n";
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         long long n,s;
+//         cin>>n>>s;
+//         vector<long long> v(n);
+//         for(long long i = 0 ; i<n ; i++){
+//             cin>>v[i];
+//         }
+//         long long cnt = 0;
+//         for(long long i = 0 ; i<n ; i++){
+//             long long sum = 0;
+//             for(long long j = i ; j<n ; j++){
+//                sum += v[j];
+//                if(sum == s){
+//                 cnt++;
+//                }
+//             }
+//         }
+//         cout<<cnt<<"\n";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main(){
+//     int t;
+//     cin >> t;
+//     while(t--){
+//         long long n,k;
+//         cin >> n >> k;
+//         vector<long long> a(n);
+//         for(long long i = 0; i < n; i++){
+//             cin >> a[i];
+//         }
+//         long long i = 0;
+//         long long j = 0;
+//         long long maxi = 0;
+//         unordered_map<long long,long long> m;
+//         while(i < n && j < n){
+//             m[a[j]]++;
+//             if(m.size() <= k){
+//                 maxi = max(maxi, j-i+1);
+//                 j++;
+//             }
+//             else{
+//                 m[a[j]]--;
+//                 if(m[a[j]] == 0){
+//                     m.erase(a[j]);
+//                 }
+//                 m[a[i]]--;
+//                 if(m[a[i]] == 0){
+//                     m.erase(a[i]);
+//                 }
+//                 i++;
+//             }
+//         }
+//         cout<<maxi<<"\n";
+//     }
+// }
