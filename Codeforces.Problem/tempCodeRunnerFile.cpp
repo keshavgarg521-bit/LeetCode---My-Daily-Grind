@@ -1,65 +1,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n,k;
-        cin>>n>>k;
-        int a[n];
-        for(int i = 0 ; i<n ; i++){
-          cin>>a[i];
-        }
-        unordered_map<int,int> freq;
-        for(int i = 0 ; i<n ; i++){
-            freq[a[i]]++;
-        }
-        multiset<int> st;
-        for(auto i:freq){
-            st.insert(i.second);
-        }
-        int ans = 0;
-        int total = n;
-        int offadd = 0;
-        while(st.size() > 0){
-            int add = 0;
-           if(total > k){
-                add--;
-                offadd--;
-                for (auto it = st.begin(); it != st.end(); ) {
-                if ((*it + offadd) == 0) {
-                    it = st.erase(it);
-                } else {
-                    ++it;
-                } 
-              }
-           }
-           else if(total == k){
-            ans++;
-            int data = *st.begin() + offadd;
-            st.erase(st.begin());
-            offadd -= data;
-            add -= data;
-           }
-           else{
-            if( (k-total)%(st.size()) == 0){
-                offadd++;
-                add++;
+    int n,d;
+    cin>>n>>d;
+    int arr[n];
+    for(int i = 0 ; i<n ; i++){
+        cin>>arr[i];
+    }
+    set<int> s;
+    unordered_map<int,list<int>> m;
+    for(int i = 0 ; i<n ; i++){
+        s.insert(arr[i]);
+        m[arr[i]].push_back(i+1);
+    }
+    vector<int> ans;
+    auto it = s.begin();
+    for(int i = 0; i < s.size(); i++) {
+    if(i == 0){
+        if(next(it) == s.end() || *next(it) - *it >= d){
+            for(auto j:m[*it]){
+                ans.push_back(j);
             }
-            else{
-                offadd--;
-                add--;
-                for (auto it = st.begin(); it != st.end(); ) {
-                if ((*it + offadd) == 0) {
-                    it = st.erase(it);
-                } else {
-                    ++it;
-                } 
-              }
-            }
-           }
-           total = total + (st.size()*add);
         }
-        cout<<ans<<endl;
+    }
+    else if(i == s.size()-1){
+        if(*it - *prev(it) >= d){
+            for(auto j:m[*it]){
+                ans.push_back(j);
+            }
+        }
+    }
+    else{
+        if((*next(it) - *it >= d) && (*it - *prev(it) >= d)){
+            for(auto j:m[*it]){
+                ans.push_back(j);
+            }
+        }
+    }
+    it++;
+    }
+    sort(ans.begin(),ans.end());
+    cout<<ans.size()<<endl;
+    for(int i = 0 ; i<ans.size() ; i++){
+        cout<<ans[i]<<" ";
     }
 }

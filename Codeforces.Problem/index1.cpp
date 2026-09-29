@@ -1509,3 +1509,696 @@
 //         cout<<maxi<<"\n";
 //     }
 // }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     string s;
+//     cin>>s;
+//     string t;
+//     for(int i = 0 ; i<s.size()-1 ; i++){
+//         t.push_back(s[i]);
+//     }
+//     if(s[s.size()-1] == 'e'){
+//         t.push_back('e');
+//         t.push_back('r');
+//     }
+//     else{
+//         t.push_back(s[s.size()-1]);
+//         t.push_back('e');
+//         t.push_back('r');
+//     }
+//     cout<<t;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int n;
+//     cin>>n;
+//     string s;
+//     cin>>s;
+//     string t;
+//     cin>>t;
+//     bool ans = true;
+//     for(int i = 0 ; i<n ; i++){
+//         if(t[i] != '*'){
+//             if(t[i] != s[i]){
+//                 ans = false;
+//                 break;
+//             }
+//         }
+//     }
+//     if(ans){
+//         cout<<"Yes";
+//     }
+//     else{
+//         cout<<"No";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long n;
+//     cin>>n;
+//     long long a[n];
+//     for(long long i = 0 ; i<n ; i++){
+//         cin>>a[i];
+//     }
+//     vector<long long> ans;
+//     priority_queue<long long, vector<long long>, greater<long long>> pq;
+//     for(long long i = 0 ; i<3 ; i++){
+//         pq.push(a[i]);
+//     }
+//     ans.push_back(pq.top());
+//     for(long long i = 3 ; i<n ; i++){
+//         pq.push(a[i]);
+//         if(pq.size()>3){
+//             pq.pop();
+//         }
+//         ans.push_back(pq.top());
+//     }
+//     for(long long i = 0 ; i<ans.size() ; i++){
+//         cout<<ans[i]<<"\n";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long n,m,k;
+//     cin>>n>>m>>k;
+//     long long x,y;
+//     cin>>x>>y;
+//     vector<long long> a(n);
+//     for(long long i = 0 ; i<n ; i++){
+//         cin>>a[i];
+//     }
+//     vector<long long> b(m);
+//     for(long long i = 0 ; i<m ; i++){
+//         cin>>b[i];
+//     }
+//     sort(a.begin(),a.end());
+//     sort(b.begin(),b.end());
+//     long long cnt = 0;
+//     for(long long i = 0 ; i<m ; i++){
+//         if(ceil((double)b[i] / k) <= y){
+//             y = y - ceil((double)b[i] / k);
+//             x = x + ((ceil((double)b[i] / k)*k)-b[i]);
+//             cnt++;
+//         }
+//     }
+//     for(long long i = 0 ; i<n ; i++){
+//         if( (a[i]/k) <= y ){
+//             y = y - (a[i]/k);
+//             a[i] = a[i]%k;
+//         }
+//         if(a[i] <= x){
+//             x = x - a[i];
+//             cnt++;
+//         }
+//     }
+//     cout<<cnt;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         char c;
+//         cin>>c;
+//         string s;
+//         cin>>s;
+//         bool ans = true;
+//         int i = 0;
+//         int cnt = 0;
+//         while(i<n/2){
+//             if(s[i] != s[n-i-1]){
+//                 if(s[i] == c || s[n-i-1] == c){
+//                     cnt++;
+//                 }
+//                 else{
+//                     cnt += 2;
+//                 }
+//             }
+//             i++;
+//         }
+//         cout<<cnt<<"\n";
+//     }
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         map<int, int, greater<int> > m;
+
+//         for (int i = 0; i < n; i++) {
+//             int x;
+//             cin >> x;
+//             m[x]++;
+//         }
+
+//         vector<int> ans;
+
+//         while (!m.empty()) {
+//             vector<int> remove;
+
+//             for (auto it = m.begin(); it != m.end(); ++it) {
+//                 int x = it->first;
+
+//                 ans.push_back(x);
+//                 it->second--;
+
+//                 if (it->second == 0) {
+//                     remove.push_back(x);
+//                 }
+//             }
+
+//             for (int x : remove) {
+//                 m.erase(x);
+//             }
+//         }
+
+//         for (int x : ans) {
+//             cout << x << " ";
+//         }
+
+//         cout << "\n";
+//     }
+
+//     return 0;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     char c;
+//     cin>>c;
+//     if(c == 'B'){
+//         cout<<"Y";
+//     }
+//     else if(c == 'Y'){
+//         cout<<"R";
+//     }
+//     else{
+//         cout<<"B";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main(){
+//     int n,d;
+//     cin>>n>>d;
+
+//     int arr[n];
+
+//     for(int i = 0 ; i<n ; i++){
+//         cin>>arr[i];
+//     }
+
+//     set<int> s;
+//     unordered_map<int,list<int>> m;
+
+//     for(int i = 0 ; i<n ; i++){
+//         s.insert(arr[i]);
+//         m[arr[i]].push_back(i+1);
+//     }
+
+//     vector<int> ans;
+
+//     auto it = s.begin();
+
+//     for(int i = 0; i < s.size(); i++) {
+
+//         // Duplicate coordinate -> nobody at this coordinate can stand apart
+//         if(m[*it].size() > 1){
+//             it++;
+//             continue;
+//         }
+
+//         if(i == 0){
+//             if(next(it) == s.end() || *next(it) - *it >= d){
+//                 for(auto j : m[*it]){
+//                     ans.push_back(j);
+//                 }
+//             }
+//         }
+
+//         else if(i == s.size()-1){
+//             if(*it - *prev(it) >= d){
+//                 for(auto j : m[*it]){
+//                     ans.push_back(j);
+//                 }
+//             }
+//         }
+
+//         else{
+//             if((*next(it) - *it >= d) &&
+//                (*it - *prev(it) >= d)){
+//                 for(auto j : m[*it]){
+//                     ans.push_back(j);
+//                 }
+//             }
+//         }
+
+//         it++;
+//     }
+
+//     sort(ans.begin(),ans.end());
+
+//     cout<<ans.size()<<endl;
+
+//     for(int i = 0 ; i<ans.size() ; i++){
+//         cout<<ans[i]<<" ";
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     long long q;
+//     cin>>q;
+//     string s;
+//     cin>>s;
+//     string t;
+//     cin>>t;
+//     vector<vector<long long>> temp;
+//        long long i = 0;
+//        while(i <= (s.size()-t.size()) ){
+//         if(s[i] == t[0]){
+//             bool check = true;
+//             for(long long j = 1 ; j<t.size() ; j++){
+//                 if(s[i+j] != t[j]){
+//                     check = false;
+//                 }
+//             }
+//             if(check){
+//                 vector<long long> tem;
+//                 tem.push_back(i);
+//                 tem.push_back(i+t.size()-1);
+//                 temp.push_back(tem);
+//             }
+//         }
+//         i++;
+//        }
+//     while(q--){
+//        long long l,r;
+//        cin>>l>>r;
+//        bool check = false;
+//        for(long long j = 0 ; j<temp.size() ; j++){
+//           if(temp[j][0] >= (l-1) && temp[j][1] <= (r-1)){
+//             check = true;
+//             break;
+//           }
+//        }
+//        if(check){
+//         cout<<"YES"<<endl;
+//        }
+//        else{
+//         cout<<"NO"<<endl;
+//        }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         int n;
+//         cin>>n;
+//         int a[n];
+//         int b[n];
+//         for(int i = 0 ; i<n ; i++){
+//             cin>>a[i];
+//             cin>>b[i];
+//         }
+//         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+//         for(int i = 0 ; i<n ; i++){
+//             pq.push({a[i],b[i]});
+//         }
+//         int tim = 0;
+//         int cnt = 0;
+//         while(!pq.empty()){
+//             tim += pq.top().first;
+//             if(tim > pq.top().second){
+//                 break;
+//             }
+//             cnt++;
+//             pq.pop();
+//         }
+//         cout<<cnt<<endl;
+//     }
+// }
+
+// #include <iostream>
+// using namespace std;
+// int main() {
+//     int t;
+//     cin >> t;
+//     while (t--) {
+//         string s;
+//         cin >> s;
+//         int b = 0, g = 0;
+//         for (char c : s) {
+//             if (c == 'B')
+//                 b++;
+//             else
+//                 g++;
+//         }
+//         if (b == g)
+//             cout << "YES\n";
+//         else
+//             cout << "NO\n";
+//     }
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+//         vector<long long> v(2 * n);
+//         for (int i = 0; i < 2 * n; i++)
+//             cin >> v[i];
+//         sort(v.begin(), v.end());
+//         vector<long long> ans;
+//         long long sum = 0;
+//         // Make array using first half
+//         for (int i = 0; i < n; i++) {
+//             long long x = v[i] - sum;
+//             if (x <= 0) {
+//                 ans.clear();
+//                 break;
+//             }
+//             ans.push_back(x);
+//             sum += x;
+//         }
+//         if (ans.empty()) {
+//             cout << -1 << endl;
+//             continue;
+//         }
+//         // Check prefix sums
+//         vector<long long> check;
+//         sum = 0;
+//         for (int x : ans) {
+//             sum += x;
+//             check.push_back(sum);
+//         }
+//         // Check suffix sums
+//         sum = 0;
+//         for (int i = n - 1; i >= 0; i--) {
+//             sum += ans[i];
+//             check.push_back(sum);
+//         }
+//         sort(check.begin(), check.end());
+//         if (check == v) {
+//             for (int x : ans)
+//                 cout << x << " ";
+//             cout << endl;
+//         } else {
+//             cout << -1 << endl;
+//         }
+//     }
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n, k;
+//         cin >> n >> k;
+
+//         string s;
+//         cin >> s;
+
+//         int white = 0;
+
+//         // First window
+//         for (int i = 0; i < k; i++) {
+//             if (s[i] == 'W')
+//                 white++;
+//         }
+
+//         int ans = white;
+
+//         // Sliding window
+//         for (int i = k; i < n; i++) {
+
+//             // New character added
+//             if (s[i] == 'W')
+//                 white++;
+
+//             // Old character removed
+//             if (s[i - k] == 'W')
+//                 white--;
+
+//             ans = min(ans, white);
+//         }
+
+//         cout << ans << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         long long a, b, k;
+//         cin >> a >> b >> k;
+
+//         long long posts = (a + k - 1) / k + (b + k - 1) / k;
+
+//         cout << posts << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         vector<int> a(n);
+
+//         for (int i = 0; i < n; i++)
+//             cin >> a[i];
+
+//         for (int i = 0; i < n - 1; i++) {
+
+//             if (a[i] % 2 != a[i + 1] % 2 && a[i + 1] < a[i]) {
+//                 swap(a[i], a[i + 1]);
+
+//                 if (i >= 2)
+//                     i -= 2;
+//                 else
+//                     i = -1;
+//             }
+//         }
+
+//         for (int x : a)
+//             cout << x << " ";
+
+//         cout << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         string s;
+//         cin >> s;
+
+//         // If whole row is empty
+//         if (s.find('1') == string::npos) {
+//             cout << n << endl;
+//             continue;
+//         }
+
+//         int ans = -1;
+
+//         for (int i = 0; i < n - 1; i++) {
+
+//             if (s[i] == '0' && s[i + 1] == '0') {
+
+//                 int left = n;
+//                 int right = n;
+
+//                 // Go left from first empty seat
+//                 for (int j = i - 1; j >= 0; j--) {
+//                     if (s[j] == '1') {
+//                         left = i - j;
+//                         break;
+//                     }
+//                 }
+
+//                 // Go right from second empty seat
+//                 for (int j = i + 2; j < n; j++) {
+//                     if (s[j] == '1') {
+//                         right = j - (i + 1);
+//                         break;
+//                     }
+//                 }
+
+//                 int dist = min(left, right);
+
+//                 ans = max(ans, dist);
+//             }
+//         }
+
+//         cout << ans << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         vector<int> a(n), b(n);
+
+//         for (int i = 0; i < n; i++)
+//             cin >> a[i];
+
+//         for (int i = 0; i < n; i++)
+//             cin >> b[i];
+
+//         int ans = 0;
+
+//         for (int i = 0; i < n; i++) {
+//             for (int j = i + 1; j < n; j++) {
+
+//                 if (a[i] + a[j] > b[i] + b[j])
+//                     ans++;
+//             }
+//         }
+
+//         cout << ans << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int t;
+//     cin >> t;
+
+//     while (t--) {
+//         int n;
+//         cin >> n;
+
+//         vector<long long> v(2 * n);
+
+//         for (int i = 0; i < 2 * n; i++)
+//             cin >> v[i];
+
+//         sort(v.begin(), v.end());
+
+//         vector<long long> ans;
+
+//         long long sum = 0;
+
+//         // Create original array
+//         for (int i = 0; i < n; i++) {
+//             long long x = v[i] - sum;
+
+//             if (x <= 0) {
+//                 ans.clear();
+//                 break;
+//             }
+
+//             ans.push_back(x);
+//             sum += x;
+//         }
+
+//         if (ans.empty()) {
+//             cout << -1 << endl;
+//             continue;
+//         }
+
+//         // Check suffix sums
+//         sum = 0;
+//         bool ok = true;
+
+//         for (int i = n - 1; i >= 0; i--) {
+//             sum += ans[i];
+
+//             if (sum != v[n + (n - 1 - i)]) {
+//                 ok = false;
+//                 break;
+//             }
+//         }
+
+//         if (ok) {
+//             for (long long x : ans)
+//                 cout << x << " ";
+
+//             cout << endl;
+//         }
+//         else {
+//             cout << -1 << endl;
+//         }
+//     }
+
+//     return 0;
+// }
